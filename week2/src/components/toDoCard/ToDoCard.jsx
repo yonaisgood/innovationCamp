@@ -10,10 +10,10 @@ export default function ToDoCard() {
       <h3>제목</h3>
       <p>내용</p>
       <Styled.ButtonBox>
-        <Button borderColor="red" bgColor="white" color="black">
+        <Button borderColor="red" backgroundColor="white" color="black">
           Delete
         </Button>
-        <Button borderColor="green" bgColor="white" color="black">
+        <Button borderColor="green" backgroundColor="white" color="black">
           Done
         </Button>
       </Styled.ButtonBox>
