@@ -1,14 +1,17 @@
 // import { useState } from 'react';
 import './App.css';
-import { Provider } from 'react-redux';
-import store from './config/store';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage';
+import DetailPage from './pages/DetailPage';
 
 function App() {
   return (
-    <Provider store={store}>
-      <MainPage />
-    </Provider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />}></Route>
+        <Route path="/:id" element={<DetailPage />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,13 +1,14 @@
-import React from 'react';
-import Button from '../common/button/Button';
-// import {deleteTodo} from "../"
-import * as Styled from './ToDoCardStyeld';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
+import Button from '../common/button/Button';
 import { deleteToDo } from '../../modules/todos';
+import * as Styled from './ToDoCardStyeld';
 
 export default function ToDoCard(props) {
   const { toDo } = props;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   if (!toDo) {
     return null;
@@ -19,7 +20,9 @@ export default function ToDoCard(props) {
 
   return (
     <Styled.TodoCardBox key={toDo.id}>
-      <Button width="100px">Detail</Button>
+      <Button width="100px" onClick={() => navigate(`/${toDo.id}`)}>
+        Detail
+      </Button>
       <h3>{toDo.title}</h3>
       <p>{toDo.contents}</p>
       <Styled.ButtonBox>
