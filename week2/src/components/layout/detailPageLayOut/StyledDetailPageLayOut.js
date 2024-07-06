@@ -18,4 +18,12 @@ const DetailPageBox = styled.section`
 
 const DetailPageInfo = styled.div``;
 
-export { DetailPageBox, DetailPageInfo };
+const IdBox = styled.p`
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 5px;
+`;
+
+export { DetailPageBox, DetailPageInfo, IdBox };
