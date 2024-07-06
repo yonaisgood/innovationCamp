@@ -1,13 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const initialState = [
-  {
-    id: 1,
-    title: 'ww',
-    content: 'ss',
-    isDone: 'false',
-  },
-];
+const initialState = [];
 
 //액션
 const ADD_TODO = 'todos/ADD_TODO';
