@@ -4,7 +4,7 @@ import { ButtonBox } from './StyledButton';
 export default function Button({
   onClick,
   children,
-  bgColor,
+  backgroundColor,
   color,
   borderColor,
   width,
@@ -12,7 +12,7 @@ export default function Button({
   return (
     <ButtonBox
       onClick={onClick}
-      bgColor={bgColor}
+      backgroundColor={backgroundColor}
       color={color}
       borderColor={borderColor}
       width={width}
