@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-const ButtonBox = styled.button`
+const ButtonBox = styled.button.withConfig({
+  shouldForwardProp: (props) =>
+    !['backgroundColor', 'color', 'borderColor', 'width'].includes(props),
+})`
   border: 1px solid ${(props) => props.borderColor || 'transparent'};
   background-color: ${(props) => props.backgroundColor || 'teal'};
   color: ${(props) => props.color || 'rgb(255, 255, 255)'};
