@@ -5,18 +5,24 @@ const initialState = [];
 //액션
 const ADD_TODO = 'todos/ADD_TODO';
 const DELETE_TODO = 'todos/DELETE_TODO';
+const TOGGLE_TODO = 'todos/TOGGLE_TODO';
 
-export const addNewToDo = (todo) => {
+export const addNewToDo = (toDo) => {
   const id = uuidv4();
 
   return {
     type: ADD_TODO,
-    payload: { ...todo, id },
+    payload: { ...toDo, id },
   };
 };
 
 export const deleteToDo = (id) => ({
   type: DELETE_TODO,
+  payload: id,
+});
+
+export const toggleToDo = (id) => ({
+  type: TOGGLE_TODO,
   payload: id,
 });
 
@@ -34,6 +40,11 @@ export const toDos = (state = initialState, action) => {
       }
       return newState;
     }
+    case TOGGLE_TODO:
+      return state.map((toDo) =>
+        toDo.id === action.payload ? { ...toDo, isDone: !toDo.isDone } : toDo,
+      );
+
     default:
       return state;
   }

@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Button from '../common/button/Button';
-import { deleteToDo } from '../../modules/todos';
+import { deleteToDo, toggleToDo } from '../../modules/todos';
 import * as Styled from './ToDoCardStyeld';
 
 export default function ToDoCard(props) {
@@ -18,6 +18,9 @@ export default function ToDoCard(props) {
     dispatch(deleteToDo(id));
   };
 
+  const onToggle = (id) => {
+    dispatch(toggleToDo(id));
+  };
   return (
     <Styled.TodoCardBox key={toDo.id}>
       <Button width="100px" onClick={() => navigate(`/${toDo.id}`)}>
@@ -34,8 +37,13 @@ export default function ToDoCard(props) {
         >
           Delete
         </Button>
-        <Button borderColor="green" backgroundColor="white" color="black">
-          Done
+        <Button
+          borderColor="green"
+          backgroundColor="white"
+          color="black"
+          onClick={() => onToggle(toDo.id)}
+        >
+          {toDo.isDone ? 'Cancel' : 'Done'}
         </Button>
       </Styled.ButtonBox>
     </Styled.TodoCardBox>
