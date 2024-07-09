@@ -12,13 +12,12 @@ export default function DetailPageLayOut() {
 
   return (
     <Styled.DetailPageBox>
-      <Styled.DetailPageInfo>
-        <Styled.IdBox>ID : {toDo.id}</Styled.IdBox>
-        <div>
-          <h3>{toDo.title}</h3>
-          <p>{toDo.contents}</p>
-        </div>
-      </Styled.DetailPageInfo>
+      <Styled.IdBox>ID : {toDo.id}</Styled.IdBox>
+      <div>
+        <h3>{toDo.title}</h3>
+        <p>{toDo.contents}</p>
+      </div>
+
       <Button
         borderColor="gray"
         backgroundColor="white"
