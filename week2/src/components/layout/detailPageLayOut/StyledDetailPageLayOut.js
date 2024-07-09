@@ -16,8 +16,6 @@ const DetailPageBox = styled.section`
   }
 `;
 
-const DetailPageInfo = styled.div``;
-
 const IdBox = styled.p`
   max-width: 200px;
   white-space: nowrap;
@@ -26,4 +24,4 @@ const IdBox = styled.p`
   margin-top: 5px;
 `;
 
-export { DetailPageBox, DetailPageInfo, IdBox };
+export { DetailPageBox, IdBox };
