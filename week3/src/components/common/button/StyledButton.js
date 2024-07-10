@@ -10,6 +10,11 @@ const ButtonBox = styled.button`
   align-items: center;
   justify-content: center;
   gap: 7px;
+
+  img {
+    width: 16px;
+    aspect-ratio: 1/1;
+  }
 `;
 
 //사이즈별 버튼 크기
