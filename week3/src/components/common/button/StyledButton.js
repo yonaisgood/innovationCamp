@@ -8,6 +8,7 @@ const ButtonBox = styled.button`
   font-weight: 600;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
 `;
 
