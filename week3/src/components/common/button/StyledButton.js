@@ -6,6 +6,9 @@ const ButtonBox = styled.button`
   ${({ border }) => border && borderStyles}
   border-radius: 8px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 `;
 
 //사이즈별 버튼 크기
