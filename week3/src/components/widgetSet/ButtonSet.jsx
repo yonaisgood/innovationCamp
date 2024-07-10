@@ -1,7 +1,7 @@
 import Button from '@/components/common/button/Button';
 import * as Styled from '@/components/widgetSet/CommonLayout';
-import BellIcon from '../../../assets/bell.svg';
-import NextIcon from '../../../assets/next.svg';
+import BellIcon from '@/assets/bell.svg';
+import NextIcon from '@/assets/next.svg';
 
 export default function ButtonSet() {
   const handleMakeBtn = () => {
