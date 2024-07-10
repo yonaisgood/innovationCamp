@@ -35,16 +35,26 @@ const negativeStyle = css`
   color: rgb(214, 48, 49);
   background-color: rgb(250, 177, 160);
   border-color: rgb(250, 177, 160);
+  &:active {
+    background-color: #e17055;
+  }
 `;
 
 const primaryStyle = css`
   background-color: rgb(85, 239, 196);
   border-color: rgb(85, 239, 196);
+  &:active {
+    background-color: #00b894;
+  }
 `;
 
 //border 버튼 스타일
 const borderStyles = css`
   background-color: white;
   border-width: 3px;
+  &:active {
+    background-color: #eeeeee;
+  }
 `;
+
 export { ButtonBox };
