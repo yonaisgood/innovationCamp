@@ -3,20 +3,20 @@ import * as Styled from '@/components/common/button/StyledButton';
 export default function Button({
   size,
   color,
+  borderRadius,
   border,
   icon,
   children,
   onClick,
-  ...props
 }) {
   return (
     <Styled.ButtonBox
       $size={size}
       $color={color}
       icon={icon}
-      border={border}
+      $border={border}
+      $borderRadius={borderRadius}
       onClick={onClick}
-      {...props}
     >
       {children}
       {icon && <img src={icon} alt="Icon" />}

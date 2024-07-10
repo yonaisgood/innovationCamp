@@ -2,9 +2,11 @@ import styled, { css } from 'styled-components';
 
 const ButtonBox = styled.button`
   ${({ $size }) => sizeStyles[$size]};
-  ${({ $color }) => ($color === 'negative' ? negativeStyle : primaryStyle)};
-  ${({ border }) => border && borderStyles}
-  border-radius: 8px;
+  ${({ $color }) => (colorStyles[$color] ? colorStyles[$color] : primaryStyle)};
+  ${({ $border }) => $border && borderStyles}
+  ${({ $borderRadius }) =>
+    $borderRadius === 'circleBtn' ? circleStyle : 'border-radius: 8px;'};
+
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -33,10 +35,17 @@ const smallStyle = css`
   height: 40px;
 `;
 
+const circleStyle = css`
+  width: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+`;
+
 const sizeStyles = {
   large: largeStyle,
   medium: mediumStyle,
   small: smallStyle,
+  circle: circleStyle,
 };
 
 //primary, negative 버튼 스타일
@@ -56,6 +65,19 @@ const primaryStyle = css`
     background-color: #00b894;
   }
 `;
+
+const grayStyle = css`
+  background-color: #e2e2e2;
+  border: 1px solid rgb(221, 221, 221);
+  &:active {
+    opacity: 70%;
+  }
+`;
+const colorStyles = {
+  negative: negativeStyle,
+  primary: primaryStyle,
+  gray: grayStyle,
+};
 
 //border 버튼 스타일
 const borderStyles = css`
