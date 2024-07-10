@@ -6,6 +6,7 @@ export default function Button({
   border,
   icon,
   children,
+  onClick,
   ...props
 }) {
   return (
@@ -14,6 +15,7 @@ export default function Button({
       $color={color}
       icon={icon}
       border={border}
+      onClick={onClick}
       {...props}
     >
       {children}
