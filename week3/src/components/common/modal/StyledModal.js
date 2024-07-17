@@ -1,17 +1,29 @@
 import styled from 'styled-components';
 
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+`;
+
 const DialogModal = styled.dialog`
-  position: absolute;
-  left: 50%;
+  position: fixed;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 12px;
-  padding: 24px;
-  background-color: rgb(255, 255, 255);
-  width: 300px;
-  height: 200px;
-  border: none;
+
+  min-width: 300px;
+  min-height: 200px;
   margin: 0;
+
+  border-radius: 12px;
+  border: none;
+  background: white;
+  z-index: 1000;
 `;
 
 const DialogContents = styled.p`
@@ -38,6 +50,7 @@ const BottomButtonRow = styled.div`
 `;
 
 export {
+  Overlay,
   DialogModal,
   DialogContents,
   ButtonRow,

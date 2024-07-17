@@ -17,12 +17,13 @@ export default function InputSet() {
   };
 
   const onHandleSubmit = () => {
-    if (name === '' && price === 0) {
+    if (name === '' || price === 0) {
       alert('이름과 가격을 입력해 주세요');
     } else {
       alert(`이름은 : ${name}, 가격은 : ${price}`);
     }
   };
+
   return (
     <Styled.SectionLayout>
       <h2>Input</h2>

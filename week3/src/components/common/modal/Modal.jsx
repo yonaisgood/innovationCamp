@@ -1,43 +1,48 @@
+import useModalStore from '@/module/store';
 import Button from '../button/Button';
 import * as Styled from './StyledModal';
 
-export default function Modal({
-  dialogRef,
-  content,
-  buttons = [],
-  buttonPosition = 'bottom',
-}) {
+export default function Modal() {
+  const { modalContent } = useModalStore((state) => ({
+    modalContent: state.modalContent,
+  }));
+
+  if (!modalContent.isOpen) return null;
+
   return (
-    <Styled.DialogModal ref={dialogRef}>
-      {buttonPosition === 'top' && (
-        <Styled.TopButtonRow>
-          <Button
-            size={buttons[0].size}
-            color={buttons[0].color}
-            onClick={buttons[0].onClick}
-            borderRadius={buttons[0].borderRadius}
-          >
-            {buttons[0].label}
-          </Button>
-        </Styled.TopButtonRow>
-      )}
-
-      <Styled.DialogContents>{content}</Styled.DialogContents>
-
-      {buttonPosition === 'bottom' && (
-        <Styled.BottomButtonRow>
-          {buttons.map((button, index) => (
+    <>
+      <Styled.Overlay />
+      <Styled.DialogModal open={modalContent.isOpen}>
+        {modalContent.buttonPosition === 'top' && (
+          <Styled.TopButtonRow>
             <Button
-              key={index}
-              size={button.size}
-              color={button.color}
-              onClick={button.onClick}
+              size={modalContent.buttons[0].size}
+              color={modalContent.buttons[0].color}
+              onClick={modalContent.buttons[0].onClick}
+              borderRadius={modalContent.buttons[0].borderRadius}
             >
-              {button.label}
+              {modalContent.buttons[0].label}
             </Button>
-          ))}
-        </Styled.BottomButtonRow>
-      )}
-    </Styled.DialogModal>
+          </Styled.TopButtonRow>
+        )}
+
+        <Styled.DialogContents>{modalContent.content}</Styled.DialogContents>
+
+        {modalContent.buttonPosition === 'bottom' && (
+          <Styled.BottomButtonRow>
+            {modalContent.buttons.map((button, index) => (
+              <Button
+                key={index}
+                size={button.size}
+                color={button.color}
+                onClick={button.onClick}
+              >
+                {button.label}
+              </Button>
+            ))}
+          </Styled.BottomButtonRow>
+        )}
+      </Styled.DialogModal>
+    </>
   );
 }
